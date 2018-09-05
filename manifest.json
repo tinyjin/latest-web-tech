@@ -1,0 +1,15 @@
+{
+  "short_name": "Learning PWA",
+  "name": "Jinui's PWA APP",
+  "icons": [
+    {
+    "src": "main-icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#2196F3",
+  "display": "standalone",
+  "theme_color": "#2196F3"
+}
