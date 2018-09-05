@@ -1,8 +1,10 @@
 import runtime from 'serviceworker-webpack-plugin/lib/runtime';
-import '../icon/main-icon.png'
+import '../icon/main-icon.png';
 
 const applicationServerPublicKey = 'BJKYc2RUZ6uznfb6x1y4ffUzkWaI6PwfkVN21cCGsu1ZjqTV9wg2HdwHDaZFxQFxqBojd6gkWlgDaYcTJx2rIVI';
 const pushButton = document.querySelector('.push-button');
+const payButton = document.querySelector('.pay-button');
+
 const subscriptionDetails = document.querySelector('.js-subscription-json');
 
 let swRegistration;
@@ -75,6 +77,37 @@ function subscribeUser() {
     });
 }
 
+const methodData = [
+  {
+    supportedMethods: ["visa", "mastercard"]
+  }
+];
+
+var details = {
+  displayItems: [
+    {
+      label: "Original donation amount",
+      amount: { currency: "USD", value : "65.00" }, // US$65.00
+    },
+    {
+      label: "Friends and family discount",
+      amount: { currency: "USD", value : "-10.00" }, // -US$10.00
+      pending: true // The price is not determined yet
+    }
+  ],
+  total:  {
+    label: "Total",
+    amount: { currency: "USD", value : "55.00" }, // US$55.00
+  }
+}
+
+const request = new PaymentRequest(
+  methodData, // required payment method data
+  details,    // required information about transaction
+  //options     // optional parameter for things like shipping, etc.
+);
+
+
 function initialiseUI() {
   pushButton.addEventListener('click', function() {
     pushButton.disabled = true;
@@ -83,6 +116,15 @@ function initialiseUI() {
       subscribeUser();
     }
   });
+
+  payButton.onclick = () => {
+    request.show().then(function(paymentResponse) {
+      // Process paymentResponse here
+      paymentResponse.complete("success");
+    }).catch(function(err) {
+      console.error("Uh oh, something bad happened", err.message);
+    });
+};
 
   // Set the initial subscription value
   swRegistration.pushManager.getSubscription()

@@ -6,8 +6,18 @@
   <title></title>
 </head>
 <body>
-  <h1>진의의 PWA 이그잼풀~!</h1>
-  <button type="button" class="push-button">Push Button</button>
-  <div style="width: 100%; border: azure 1px solid" class="js-subscription-json"></div>
+
+  <h1 style="text-align: center; width: 100%; border-bottom: 1px solid black;">진의의 PWA 이그잼풀~!</h1>
+  <div class="product-wrapper">
+
+  </div>
+  <div class="button-wrapper" style="width: 100%; text-align: center;">
+    <button style="cursor: pointer; vertical-align: middle; width: 100px; height: 50px; background-color: red; color: white;" type="button" class="push-button btn btn-primary">Push Button</button>
+    <button style="cursor: pointer; vertical-align: middle; width: 100px; height: 50px; background-color: blue; color: white;" type="button" class="pay-button btn btn-primary">결제하기</button>
+  </div>
+
+  <div style="position: fixed; bottom:20px; width: 100%; border: azure 1px solid; background-color: gray;" class="js-subscription-json"></div>
+
+  <script src="https://storage.googleapis.com/prshim/v1/payment-shim.js"></script>
 </body>
 </html>
