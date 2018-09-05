@@ -4,7 +4,7 @@
   "description": "",
   "main": "scripts/index.js",
   "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --port 80",
+    "start": "webpack-dev-server --progress --port 80",
     "dev": "webpack-dev-server --open --progress --port 3000",
     "build": "webpack"
   },
