@@ -61,6 +61,6 @@ self.addEventListener('notificationclick', function(event) {
   event.notification.close();
 
   event.waitUntil(
-    clients.openWindow('https://wlsdml1103.blog.me/')
+    clients.openWindow('https://latest-web-tech.herokuapp.com/push')
   );
 });

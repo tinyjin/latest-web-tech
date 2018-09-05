@@ -4,7 +4,7 @@
   "description": "",
   "main": "scripts/index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack -p && node server.js",
     "dev": "webpack-dev-server --open --progress --port 3000",
     "build": "webpack"
   },
